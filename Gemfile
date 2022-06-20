@@ -18,6 +18,10 @@ gem "puma", "~> 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'importmap-rails' #rails importmap:install
+gem 'turbo-rails' # rails turbo:install
+gem 'stimulus-rails' #stimulus:install
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

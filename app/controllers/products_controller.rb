@@ -19,21 +19,33 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params) # Strong Parameter
     @product.category_id = 3 # 仮カテゴリー
     @product.save # DB保存
-    # redirect_to product_url @product
-    redirect_to products_url
+    redirect_to product_url @product
 
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    # 更新前の商品データは、インスタンス変数@product
+    # 更新後の商品データは変数params
+    # @product
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to product_url @product
   end
 
   def destroy
+    # 取得した該当商品のデータが代入
+    @product = Product.find(params[:id])
+    # 商品データを削除
+    @product.destroy
+    redirect_to products_url, status: :see_other
   end
 
   private
+  # 許可されたパラメータかどうかを判断
   def product_params
     params.require(:product).permit(:name, :description, :price)
   end
