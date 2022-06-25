@@ -17,14 +17,14 @@ class ProductsController < ApplicationController
   def create
     p product_params
     @product = Product.new(product_params) # Strong Parameter
-    @product.category_id = 3 # 仮カテゴリー
+    # @product.category_id = 3 # 仮カテゴリー
     @product.save # DB保存
     redirect_to product_url @product
-
   end
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -45,8 +45,9 @@ class ProductsController < ApplicationController
   end
 
   private
+
   # 許可されたパラメータかどうかを判断
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price, :category_id)
   end
 end

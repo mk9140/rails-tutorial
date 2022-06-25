@@ -6,6 +6,7 @@
   <%= form.text_field :name %>
   <%= form.text_area :description %>
   <%= form.number_field :price %>
+  <%= form.collection_select(:category_id, @categories, :id, :category_name)  %>
   <%= form.submit "Create" %>
 <% end %>
 
