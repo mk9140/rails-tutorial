@@ -21,6 +21,12 @@ gem "jbuilder"
 gem 'importmap-rails' # rails importmap:install
 gem 'turbo-rails' # rails turbo:install
 gem 'stimulus-rails' # stimulus:install
+# deviseを使用できる
+gem 'devise' # rails g devise:install
+
+# bootstrapを使用できる
+gem 'bootstrap', '~> 4.6.0'
+gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
